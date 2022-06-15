@@ -21,29 +21,39 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package testexceptions;
 
-public class TestUnexpectedStringParameter{
-    public TestUnexpectedStringParameter(String base, String espected) throws Exception{
-        
-        if(!espected.equals(base)){
-            throw new Exception("Expected " + espected + " in base parameter String '" + base);
-        }
-        
-    }
-    public TestUnexpectedStringParameter(String base, String[] espected) throws Exception{
-        String exmsg = "";
-        boolean pass = false;
-        String orStr = "";
-        for(int i = 0; i < espected.length; i++){
-            exmsg = exmsg + orStr + espected[i];
-            orStr = " or ";
-            if(espected[i].equals(base)){
-                pass = true;
-            }
-        }
-        if(pass == false){
-            throw new Exception("Expected " + exmsg + " in base parameter String '" + base);
+package vectorutils2dsymmetric;
+
+public class Transpose {
+
+public static int[][] transposeMatrix(int[][] matrix){
+    int m = matrix.length;
+    int n = matrix[0].length;
+
+    int[][] transposedMatrix = new int[n][m];
+
+    for(int x = 0; x < n; x++) {
+        for(int y = 0; y < m; y++) {
+            transposedMatrix[x][y] = matrix[y][x];
         }
     }
+
+    return transposedMatrix;
+}
+
+public static Object[][] transposeMatrix(Object[][] matrix){
+    int m = matrix.length;
+    int n = matrix[0].length;
+
+    Object[][] transposedMatrix = new Object[n][m];
+
+    for(int x = 0; x < n; x++) {
+        for(int y = 0; y < m; y++) {
+            transposedMatrix[x][y] = matrix[y][x];
+        }
+    }
+
+    return transposedMatrix;
+}
+    
 }

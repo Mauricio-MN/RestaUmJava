@@ -21,29 +21,31 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package testexceptions;
+package game;
 
-public class TestUnexpectedStringParameter{
-    public TestUnexpectedStringParameter(String base, String espected) throws Exception{
-        
-        if(!espected.equals(base)){
-            throw new Exception("Expected " + espected + " in base parameter String '" + base);
-        }
-        
+/**
+ *
+ * @author wghat
+ */
+public class Coords {
+
+    public int x;
+    public int y;
+
+    public Coords(int iX, int iY) {
+        x = iX;
+        y = iY;
     }
-    public TestUnexpectedStringParameter(String base, String[] espected) throws Exception{
-        String exmsg = "";
-        boolean pass = false;
-        String orStr = "";
-        for(int i = 0; i < espected.length; i++){
-            exmsg = exmsg + orStr + espected[i];
-            orStr = " or ";
-            if(espected[i].equals(base)){
-                pass = true;
-            }
+
+    public boolean compare(Object obj) {
+        if (obj == null) {
+            return false;
         }
-        if(pass == false){
-            throw new Exception("Expected " + exmsg + " in base parameter String '" + base);
+        if (obj == this) {
+            return true;
         }
+        Coords c = (Coords) obj;
+        return this.x == c.x && this.y == c.y;
     }
+
 }

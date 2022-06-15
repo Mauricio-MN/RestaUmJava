@@ -21,29 +21,37 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package testexceptions;
 
-public class TestUnexpectedStringParameter{
-    public TestUnexpectedStringParameter(String base, String espected) throws Exception{
-        
-        if(!espected.equals(base)){
-            throw new Exception("Expected " + espected + " in base parameter String '" + base);
-        }
-        
-    }
-    public TestUnexpectedStringParameter(String base, String[] espected) throws Exception{
-        String exmsg = "";
-        boolean pass = false;
-        String orStr = "";
-        for(int i = 0; i < espected.length; i++){
-            exmsg = exmsg + orStr + espected[i];
-            orStr = " or ";
-            if(espected[i].equals(base)){
-                pass = true;
+package vectorutils2dsymmetric;
+
+public class Rotate {
+    public static Object[][] degree180(Object[][] vector){
+        Object[][] vector4 = new Object[vector.length][vector.length];
+        int ii = 0;
+        int cc = 0;
+        for(int i = vector.length - 1; i >= 0; i--){
+            for(int c = vector.length - 1; c >= 0; c--){
+                vector4[ii][cc] = vector[i][c];
+                cc++;
             }
+            cc = 0;
+            ii++;
         }
-        if(pass == false){
-            throw new Exception("Expected " + exmsg + " in base parameter String '" + base);
+        return vector4;
+    }
+
+    public static int[][] degree180(int[][] vector){
+        int[][] vector4 = new int[vector.length][vector.length];
+        int ii = 0;
+        int cc = 0;
+        for(int i = vector.length - 1; i >= 0; i--){
+            for(int c = vector.length - 1; c >= 0; c--){
+                vector4[ii][cc] = vector[i][c];
+                cc++;
+            }
+            cc = 0;
+            ii++;
         }
+        return vector4;
     }
 }

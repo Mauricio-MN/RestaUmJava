@@ -1,3 +1,4 @@
+
 /*
  * The MIT License
  *
@@ -21,29 +22,30 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package testexceptions;
+package vectorutils2dsymmetric;
 
-public class TestUnexpectedStringParameter{
-    public TestUnexpectedStringParameter(String base, String espected) throws Exception{
-        
-        if(!espected.equals(base)){
-            throw new Exception("Expected " + espected + " in base parameter String '" + base);
-        }
-        
+public class Listed<K> {
+
+    public boolean onlist;
+
+    public Listed(K[][] vect) {
+
+        vector = vect;
+        onlist = false;
     }
-    public TestUnexpectedStringParameter(String base, String[] espected) throws Exception{
-        String exmsg = "";
-        boolean pass = false;
-        String orStr = "";
-        for(int i = 0; i < espected.length; i++){
-            exmsg = exmsg + orStr + espected[i];
-            orStr = " or ";
-            if(espected[i].equals(base)){
-                pass = true;
+
+    private K[][] vector;
+
+    public void verifyListed(Object value, int xy, int toXY) {
+
+        for (int i = xy; i < toXY; i++) {
+            int cc = 0;
+            for (int c = xy; c < toXY; c++) {
+                if (vector[i][c].equals(value) || vector[i][c] == value) {
+                    onlist = true;
+                }
             }
         }
-        if(pass == false){
-            throw new Exception("Expected " + exmsg + " in base parameter String '" + base);
-        }
     }
+
 }
