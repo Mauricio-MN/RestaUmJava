@@ -39,11 +39,13 @@ public class Simetry<K> {
     private K[][] vector;
 
     public void verifySlashBackSlashSimetry() {
+        
+        int vectorsSize = (vector.length - 1) / 2 + 1;
 
-        Object[][] vector1 = new Object[(vector.length - 1) / 2 + 1][(vector.length - 1) / 2 + 1];
-        Object[][] vector2 = new Object[(vector.length - 1) / 2 + 1][(vector.length - 1) / 2 + 1];
-        Object[][] vector3 = new Object[(vector.length - 1) / 2 + 1][(vector.length - 1) / 2 + 1];
-        Object[][] vector4 = new Object[(vector.length - 1) / 2 + 1][(vector.length - 1) / 2 + 1];
+        Object[][] vector1 = new Object[vectorsSize][vectorsSize];
+        Object[][] vector2 = new Object[vectorsSize][vectorsSize];
+        Object[][] vector3 = new Object[vectorsSize][vectorsSize];
+        Object[][] vector4 = new Object[vectorsSize][vectorsSize];
         Object[][] vectorC = new Object[vector.length][vector.length];
 
         for(int i = 0; i < vector.length; i++){
