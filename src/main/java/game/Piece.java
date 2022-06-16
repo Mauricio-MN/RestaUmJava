@@ -33,11 +33,11 @@ public class Piece{
     public Piece sideMidlePiece;
     public Piece sideEndPiece;
 
-    Piece[][] pieces;
+    public Piece[][] pieces;
 
-    public Piece(int i, int iX, int iY, Piece[][] myPieces) {
+    public Piece(int type, int iX, int iY, Piece[][] myPieces) {
 
-        switch (i) {
+        switch (type) {
             case 0:
                 valid = false;
                 full = false;
