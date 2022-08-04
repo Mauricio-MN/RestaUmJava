@@ -83,10 +83,10 @@ public class Piece{
 
     private boolean moveCheck(Coords sideMidleCoords, Coords sideEndCoords) {
 
-        if (isValidCoord(sideMidleCoords.x, sideMidleCoords.y) && isValidCoord(sideEndCoords.x, sideEndCoords.y)) {
+        if (isValidCoord(sideMidleCoords.getX(), sideMidleCoords.getY()) && isValidCoord(sideEndCoords.getX(), sideEndCoords.getY())) {
 
-            sideEndPiece = pieces[sideEndCoords.x][sideEndCoords.y];
-            sideMidlePiece = pieces[sideMidleCoords.x][sideMidleCoords.y];
+            sideEndPiece = pieces[sideEndCoords.getX()][sideEndCoords.getY()];
+            sideMidlePiece = pieces[sideMidleCoords.getX()][sideMidleCoords.getY()];
 
             if (sideMidlePiece.valid == true && sideMidlePiece.full == true) {
                 if (sideEndPiece.valid == true && sideEndPiece.full == false) {
